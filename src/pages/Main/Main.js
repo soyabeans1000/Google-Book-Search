@@ -6,18 +6,18 @@ const Main = props => {
   return (
     <>
       <div className="jumbotron">
-        <h1 className="display-4">My Movie App</h1>
-        <p className="lead">This is an app where you can look up a movie and see all kinds of information about it!</p>
-      </div>
-      <Form
+        <h1 className="display-4">Google Book Search</h1>
+        <Form
         handleInputChange={props.handleInputChange}
         title={props.title}
-        handleSearchMovie={props.handleSearchMovie}
+        handleSearchBooks={props.handleSearchBooks}
       />
-      <Display
-        movie={props.movie}
-        handleAddMovie={props.handleAddMovie}
-      />
+      </div>
+     
+      { <Display
+        book={props.book}
+        handleAddToFavs={props.handleAddToFavs}
+      />}
     </>
   )
 }

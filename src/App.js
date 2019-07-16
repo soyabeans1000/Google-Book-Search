@@ -10,15 +10,15 @@ import Navbar from './components/Navbar'
 class App extends Component {
   state = {
     title: '',
-    movie: {},
-    movies: []
+    book: {},
+    books: []
   }
 
-  handleSearchMovie = event => {
+  handleSearchBooks = event => {
     event.preventDefault()
     axios.get(`http://www.omdbapi.com/?t=${this.state.title}&apikey=trilogy`)
-      .then(({ data: movie }) => {
-        this.setState({ title: '', movie })
+      .then(({ data: book }) => {
+        this.setState({ title: '', book: book })
       })
       .catch(e => console.error(e))
   }
@@ -27,10 +27,10 @@ class App extends Component {
     this.setState({ [event.target.id]: event.target.value })
   }
 
-  handleAddMovie = event => {
-    let movies = this.state.movies
-    movies.push(this.state.movie)
-    this.setState({ movies, movie: {} })
+  handleAddToFavs = event => {
+    let books = this.state.books
+    books.push(this.state.book)
+    this.setState({ books, book: {} })
   }
 
   render() {
@@ -38,23 +38,31 @@ class App extends Component {
       <>
         <Router>
           <div>
-        
+     
+        {this.state.title}
+        <h5 className="card-title">{this.state.book.Title}</h5>
+                <p className="card-text">{this.state.book.Plot}</p>
+
+
+
             <Navbar />
             <Route exact path='/' render={_ => (
             <Main 
               handleInputChange={this.handleInputChange}
-              handleSearchMovie={this.handleSearchMovie}
-              handleAddMovie={this.handleAddMovie}
+              handleSearchBooks={this.handleSearchBooks}
+              handleAddToFavs={this.handleAddToFavs}
               title={this.state.title}
-              movie={this.state.movie}
+              book={this.state.book}
             />
             )} />
-            <Route path='/favs' render={_ => (
-            <Favorites
-              movies={this.state.movies}
-            />
-            )} />
-        
+
+            <h1> {} </h1>
+            { <Route path='/favs' render={_ => (
+          <Favorites
+               books={this.state.books}
+             />
+             )} />
+          }
           </div>
         </Router>
         
