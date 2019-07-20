@@ -16,7 +16,7 @@ class App extends Component {
 
   handleSearchBooks = event => {
     event.preventDefault()
-    axios.get(`https://www.googleapis.com/books/v1/volumes?q=morning+miracle&maxResults=10&key=AIzaSyBZCnhDSaxZyM3DwLc_Tt-0NLZq_YaK_Ws`)
+    axios.get(`https://www.googleapis.com/books/v1/volumes?q=morning+miracle&maxResults=10&key=${process.ENV.BOOKS_API}`)
       .then(({ data: books }) => {
         this.setState({ title: '', books:books.items})
 
