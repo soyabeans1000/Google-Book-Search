@@ -16,7 +16,9 @@ class App extends Component {
 
   handleSearchBooks = event => {
     event.preventDefault()
-    axios.get(`https://www.googleapis.com/books/v1/volumes?q=morning+miracle&maxResults=10&key=${process.ENV.BOOKS_API}`)
+
+     axios.get(`https://www.googleapis.com/books/v1/volumes?q=morning+miracle&maxResults=10&key=AIzaSyBZCnhDSaxZyM3DwLc_Tt-0NLZq_YaK_Ws`)
+    //  axios.get(`https://www.googleapis.com/books/v1/volumes?q=morning+miracle&maxResults=10&key=${process.env.REACT_APP_BOOKS_API}`)
       .then(({ data: books }) => {
         this.setState({ title: '', books:books.items})
 
@@ -43,10 +45,7 @@ class App extends Component {
       <>
         <Router>
           <div>
-     
-        {this.state.books.title}
-       
-
+             {this.state.books.title}      
 
             <Navbar />
             <Route exact path='/' render={_ => (
