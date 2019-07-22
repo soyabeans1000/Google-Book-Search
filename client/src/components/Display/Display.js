@@ -25,7 +25,7 @@ const Display = props => {
         <div className="card-body">
           <h5 className="card-title">{book.volumeInfo.title}</h5>
           <p className="card-text">{book.searchInfo.textSnippet}</p>
-          <p className="card-text"><small class="text-muted"><a href={book.volumeInfo.previewLink} target="_blank">Preview Link</a></small></p>
+          <p className="card-text"><small class="text-muted"><a href={book.volumeInfo.previewLink}>Preview Link</a></small></p>
         </div>
       </div>
     </div>
