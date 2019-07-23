@@ -1,20 +1,14 @@
-import React from 'react'
+import React from 'react';
+
 
 const Display = props => {
 
 
-  // function ShowImage(src) {
-  //   return <img src={src} className="card-img"  />;
-  // }
   
-
-
   return (
-    <>
-
+    <>  
  {
- 
-  props.books.map(book => (
+  props.books.map((book, index) => (
     <div className="card mb-3">
     <div className="row no-gutters">
       <div className="col-md-2">
@@ -27,14 +21,13 @@ const Display = props => {
           <h5 className="card-title">{book.volumeInfo.title}</h5>
           <p className="card-text">{book.searchInfo.textSnippet}</p>
           <p className="card-text"><small class="text-muted"><a href={book.volumeInfo.previewLink}>Preview Link</a></small>
-        <p> <button className="btn btn-primary" onClick={props.handleAddToFavs}>Add to Favorites</button></p>
+        <p> <button className="btn btn-primary" onClick={props.handleAddToFavs} id={index} >Add to Favorites</button></p>
           </p>
-          
-        </div>
+         
+        </div> 
       </div>
     </div>
   </div>
- 
   ))
 } 
     </>

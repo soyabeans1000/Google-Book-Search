@@ -18,7 +18,7 @@ class App extends Component {
 
   handleSearchBooks = event => {
     event.preventDefault()
-     axios.get(`https://www.googleapis.com/books/v1/volumes?q=morning+miracle&maxResults=5&key=AIzaSyBZCnhDSaxZyM3DwLc_Tt-0NLZq_YaK_Ws`)
+     axios.get(`https://www.googleapis.com/books/v1/volumes?q=morning+miracle&maxResults=5&key=${process.env.REACT_APP_BOOKS_API}`)
       .then(({ data: books }) => {
         this.setState({ title: '', books:books.items})
       })
@@ -30,10 +30,15 @@ class App extends Component {
   }
 
   handleAddToFavs = event => {
+
+    const selectedBook = this.state.books[event.target.id]
+
+    console.log(selectedBook)
+
     let newValues = {
     
-      title:'sarikaTitle',
-      link: 'sarikalink'
+      title: selectedBook.volumeInfo.title,
+      snippet:  selectedBook.searchInfo.textSnippet, 
     }
 
     
@@ -48,8 +53,7 @@ class App extends Component {
         console.log('Added New Favorite')
       })
       .catch(e => console.error(e))
-    console.log('Hnadle')
-  }
+      }
 
 
 

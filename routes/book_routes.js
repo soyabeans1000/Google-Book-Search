@@ -8,14 +8,12 @@ module.exports = app => {
     
   // })
 
-  // app.get('/favs', function (req, res) {
-  //   // Get()
-  //    Book.find({}, (e, articles) => {
-  //      if (e) throw e
-  //      res.send(articles)
- 
-  //    })}
-  //  )
+  app.get('/favs', function (req, res) {
+        Book.find({}, (e, books) => {
+       if (e) throw e
+       res.send(books)
+     })}
+   )
 
    app.post('/favs', (req, res) => {
     console.log(req.body)
@@ -26,15 +24,14 @@ module.exports = app => {
     })
   })
 
-  //  app.delete('/favs/:id', function (req, res) {
-  //   // Just Change State to False
-  //  Book.findByIdAndDelete(req.params.id, e => {
-  //     if (e) throw e
-  //     res.sendStatus(200)
-  //   })    
-    
-  //   }
-  //  )
+   app.delete('/favs/:id', function (req, res) {
+    // Just Change State to False
+   Book.findByIdAndDelete(req.params.id, e => {
+      if (e) throw e
+      res.sendStatus(200)
+    })       
+    }
+   )
  
 
 }

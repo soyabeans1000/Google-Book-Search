@@ -9,12 +9,44 @@ class Favorites extends Component  {
     books: []
   }
 
+  getFavs()
+  {
+    fetch('/favs')
+    .then(r => r.json())
+    .then(articles => {
+
+      this.setState({
+        books: articles
+      })
+
+
+      console.log(this.state.books)
+
+    })
+    .catch(e => console.error(e))      
+  }
+
+
+  // deleteFav(event)
+  // {
+  //   let newValues = {}
+  //   fetch(`/favs/${event.id}`, {
+  //     method: 'DELETE',
+  //     headers: {
+  //       'Content-Type': 'application/json'
+  //     },
+  //     body: JSON.stringify(newValues)
+  //   })
+  //     .then(_ => {
+  //       console.log('Item deleted')
+  //       // this.getFavs()
+  //     })
+  //     .catch(e => console.error(e))
+
+  // }
+
   componentDidMount = _ => {
-    axios.get(`/favs`)
-      .then(({ data: books }) => this.setState({
-        books: books
-      }))
-      .catch(e => console.error(e))
+      this.getFavs()
   }
 
   
@@ -26,23 +58,37 @@ render(){
       <div className="jumbotron">
         <h1 className="display-4">My Favorites</h1>
       </div>    
-{
-  this.state.books.map((book, index) => (
-    <div>
-    <div className="card" style={{ width: '18rem', margin: 'auto', marginTop: '30px', marginBottom: '30px' }}> Books </div>
-       <img className="card-img-top" src={book.link} alt="movie" />
-      <div className="card-body">
-        <h5 className="card-title">{book.title}</h5>
-        <p className="card-text">{book.title}</p>        
-        </div>
-        </div>
-        ))
-  }
-    </>
-  )
-
-}
+      </>)
  
+//   this.state.books.map((book, index) => (
+//     <div className="card mb-3">
+//     <div className="row no-gutters">
+//       {/* <div className="col-md-2">
+//       {book.volumeInfo.imageLinks !== undefined ? (
+//         <img src={book.volumeInfo.imageLinks.thumbnail} width="150" height="150" alt=" " />
+//         ) : null}
+//       </div> */}
+//       <div className="col-md-10">
+//         <div className="card-body">
+//           <h5 className="card-title">{book.title}</h5>
+//           <p className="card-text">{book.textSnippet}</p>
+//           {/* <p className="card-text"><small class="text-muted"><a href={book.volumeInfo.previewLink}>Preview Link</a></small> */}
+//         <p> <button className="btn btn-primary" id={book._id} onClick={this.deleteFav}>Add to Favorites</button></p>
+//           {/* </p> */}
+         
+//         </div> 
+//       </div>
+//     </div>
+//   </div>
+//         ))
+//   }
+  //   </>
+  // )
+
+//}
+ 
+}
+
 }
 
 export default Favorites
