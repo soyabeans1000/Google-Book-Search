@@ -30,24 +30,24 @@ class App extends Component {
   }
 
   handleAddToFavs = event => {
-    // let newValues = {
+    let newValues = {
     
-    //   title:'Title1',
-    //   link: 'Link'
-    // }
+      title:'sarikaTitle',
+      link: 'sarikalink'
+    }
 
     
-    // fetch(`/favs`, {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'application/json'
-    //   },
-    //   body: JSON.stringify(newValues)
-    // })
-    //   .then(_ => {
-    //     console.log('Added New Favorite')
-    //   })
-    //   .catch(e => console.error(e))
+    fetch(`/favs`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(newValues)
+    })
+      .then(_ => {
+        console.log('Added New Favorite')
+      })
+      .catch(e => console.error(e))
     console.log('Hnadle')
   }
 
@@ -61,7 +61,7 @@ class App extends Component {
         <Router>
           <div>
              {this.state.books.title}  
-                 
+
             <Navbar />
             <Route exact path='/' render={_ => (
             <Main 

@@ -11,7 +11,7 @@ require('./routes')(app)
 
 // var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/articles_db";
 // .connect('MONGODB_URI', { useNewUrlParser: true, useCreateIndex: true, useFindAndModify: true })
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/articles_db";
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/books_db";
 
 
 require('mongoose')

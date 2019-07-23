@@ -27,7 +27,7 @@ const Display = props => {
           <h5 className="card-title">{book.volumeInfo.title}</h5>
           <p className="card-text">{book.searchInfo.textSnippet}</p>
           <p className="card-text"><small class="text-muted"><a href={book.volumeInfo.previewLink}>Preview Link</a></small>
-        <p> <button className="btn btn-primary">Add to Favorites</button></p>
+        <p> <button className="btn btn-primary" onClick={props.handleAddToFavs}>Add to Favorites</button></p>
           </p>
           
         </div>
