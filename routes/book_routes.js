@@ -10,7 +10,7 @@ module.exports = app => {
 
   app.get('/favs', function (req, res) {
     // Get()
-     Article.find({}, (e, articles) => {
+     Book.find({}, (e, articles) => {
        if (e) throw e
        res.send(articles)
  
@@ -19,7 +19,7 @@ module.exports = app => {
 
    app.post('/favs', (req, res) => {
     console.log(req.body)
-    Article.create(req.body, (e, doc) => {
+    Book.create(req.body, (e, doc) => {
       console.log('here is the doc::::: ', doc)
       if (e) throw e
       res.sendStatus(200)
@@ -28,7 +28,7 @@ module.exports = app => {
 
    app.delete('/favs/:id', function (req, res) {
     // Just Change State to False
-    Article.findByIdAndDelete(req.params.id, e => {
+   Book.findByIdAndDelete(req.params.id, e => {
       if (e) throw e
       res.sendStatus(200)
     })    

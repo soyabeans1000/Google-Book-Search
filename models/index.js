@@ -1,8 +1,8 @@
     
 const { Schema, model } = require('mongoose')
-const Article = require('./Article.js')
+const Book = require('./Book.js')
 const documents = {
-  Article: Article(Schema, model)
+  Book: Book(Schema, model)
 }
 
 module.exports = documents

@@ -1,4 +1,4 @@
 module.exports = app => {
-  require('./article_routes.js')(app)
+  require('./book_routes.js')(app)
   }
 
