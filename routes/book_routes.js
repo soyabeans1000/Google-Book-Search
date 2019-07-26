@@ -4,8 +4,7 @@ const axios = require('axios')
 
 module.exports = app => {
    app.get('/', function (req, res) {  
-
-    res.sendStatus(200)
+    res.sendfile(path.join(__dirname = 'client/build/index.html'));
   })
 
   app.get('/favs', function (req, res) {
