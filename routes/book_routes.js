@@ -1,10 +1,11 @@
  const  { Book } = require('../models/index.js')
 const axios = require('axios')
+const { join } = require('path')
 
 
 module.exports = app => {
    app.get('/', function (req, res) {  
-    res.sendfile(path.join(__dirname = 'client/build/index.html'));
+    res.sendFile(path.join(__dirname+'/client/public/index.html'))
   })
 
   app.get('/favs', function (req, res) {
