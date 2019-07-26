@@ -3,10 +3,10 @@ const axios = require('axios')
 
 
 module.exports = app => {
-  // app.get('/books', function (req, res) {  
+   app.get('/', function (req, res) {  
 
-    
-  // })
+    res.sendStatus(200)
+  })
 
   app.get('/favs', function (req, res) {
         Book.find({}, (e, books) => {
