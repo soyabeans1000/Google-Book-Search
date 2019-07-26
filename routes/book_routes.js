@@ -7,6 +7,7 @@ module.exports = app => {
    app.get('/', function (req, res) {  
     res.sendFile(path.join(__dirname+'/client/public/index.html'))
   })
+}
 
   app.get('/favs', function (req, res) {
         Book.find({}, (e, books) => {
