@@ -2,7 +2,7 @@ const express = require('express')
 const { join } = require('path')
 const app = express()
 
-app.use(express.static(join(__dirname, 'client', 'build')))
+app.use(express.static(join(__dirname, 'client', 'public')))
 
 
 
@@ -11,7 +11,7 @@ app.use(express.json())
 
 
 app.get('*', (req, res) => {
-  res.sendFile(join(__dirname, 'client', 'build', 'index.html'));
+  res.sendFile(join(__dirname, 'client', 'public', 'index.html'));
 });
 require('./routes')(app)
 
