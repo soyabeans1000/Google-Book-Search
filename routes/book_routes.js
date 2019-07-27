@@ -2,12 +2,21 @@
 const axios = require('axios')
 const { join } = require('path')
 
+var path = require('path')
+
 
 module.exports = app => {
-   app.get('/', function (req, res) {  
-   res.redirect('/')
+
+
+  app.get('/', function (req, res) {
+    res.sendFile(path.join(__dirname, '../../client/public/index.html'))
   })
-}
+
+  // If no matching route is found default to home
+  app.get('*', function (req, res) {
+    res.sendFile(path.join(__dirname, '../../client/public/index.html'))
+  })
+
 
   app.get('/favs', function (req, res) {
         Book.find({}, (e, books) => {
