@@ -10,7 +10,7 @@ app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
 
-app.get('*', (req, res) => {
+app.get('/', (req, res) => {
   res.sendFile(join(__dirname, 'client', 'public', 'index.html'));
 });
 require('./routes')(app)
