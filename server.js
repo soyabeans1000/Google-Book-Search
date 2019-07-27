@@ -10,11 +10,12 @@ app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
 
+
+require('./routes')(app)
+
 app.get('/', (req, res) => {
   res.sendFile(join(__dirname, 'client', 'public', 'index.html'));
 });
-require('./routes')(app)
-
 
 // var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/articles_db";
 // .connect('MONGODB_URI', { useNewUrlParser: true, useCreateIndex: true, useFindAndModify: true })
