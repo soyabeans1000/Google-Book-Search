@@ -7,6 +7,13 @@ var path = require('path')
 
 module.exports = app => {
 
+  app.get('/', (request, response) => {
+    response.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+  });
+
+  app.get('*', (request, response) => {
+    response.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+  });
 
 
   app.get('/favs', function (req, res) {
