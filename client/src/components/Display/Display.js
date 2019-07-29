@@ -19,9 +19,14 @@ const Display = props => {
           <p className="card-text">{
             
        
-            Trim(book.searchInfo.textSnippet)
+          
             
-            
+
+            book.volumeInfo.description !== undefined ? (
+              Trim(book.volumeInfo.description)
+              ) : null
+
+
             
             }</p>
           <p className="card-text"><small class="text-muted"><a href={book.volumeInfo.previewLink}>Preview Link</a></small>

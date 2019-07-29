@@ -20,6 +20,7 @@ class App extends Component {
     event.preventDefault()
      axios.get(`https://www.googleapis.com/books/v1/volumes?q=morning+miracle&maxResults=5&key=${process.env.REACT_APP_BOOKS_API}`)
       .then(({ data: books }) => {
+        console.log(books)
         this.setState({ title: '', books:books.items})
       })
       .catch(e => console.error(e))
@@ -39,6 +40,7 @@ class App extends Component {
     
       title: selectedBook.volumeInfo.title,
       snippet:  selectedBook.searchInfo.textSnippet, 
+      description:  selectedBook.volumeInfo.description
     }
 
     
