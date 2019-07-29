@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Trim from '../../utils/func.js'
 
 const Display = props => {
   return (
@@ -19,7 +19,7 @@ const Display = props => {
           <p className="card-text">{
             
        
-        book.searchInfo.textSnippet.replace("&nbsp;", " ").replace("&quot;", "\" ").replace("&#39;", "\'")
+            Trim(book.searchInfo.textSnippet)
             
             
             
